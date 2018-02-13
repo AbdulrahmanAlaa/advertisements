@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdvService } from '../../shared/services/adv.service';
 
 @Component({
   selector: 'adv-ads-list',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private advService:AdvService) { }
 
   ngOnInit() {
+  this.advService.getAll().subscribe((results)=>{
+    console.log(results);
+  });
   }
 
 }

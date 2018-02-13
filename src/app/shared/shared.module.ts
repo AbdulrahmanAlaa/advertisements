@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StorageService } from './services/storage.service';
-import { AdsService } from './ads.service';
+import { AdvService } from './services/adv.service';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { AdsService } from './ads.service';
   ],
   providers:[
     StorageService,
-    AdsService
+    AdvService
   ],
   declarations: []
 })
