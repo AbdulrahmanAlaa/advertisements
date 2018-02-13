@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  APIUrl: 'https://api.mcmakler.de/v1/'
+  APIUrl: 'https://api.mcmakler.de/'
 };

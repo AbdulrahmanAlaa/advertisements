@@ -8,6 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -22,17 +23,17 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent
   ],
   imports: [
+    SharedModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    HttpClientModule,
-    SharedModule,
-    BrowserModule,
-    AppRoutingModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
