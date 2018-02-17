@@ -9,6 +9,9 @@ import { JSON_PATHS } from '../utilities/defines';
 export class UserService {
 
   constructor(private http: HttpClient) { }
+  /** 
+   * 
+  */
   getUserInfo() {
     return this.http.get(API_URLS.GET_User_DATA).map((response)=>{
       const user :User = new Object() as User;

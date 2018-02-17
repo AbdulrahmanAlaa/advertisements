@@ -11,5 +11,10 @@ export const JSON_PATHS = {
     },
     LOGIN: {
         TOKEN: "$.token"
+    },
+    ADS:{
+        ROOT:'$.data',
+        ADDITIONAL_ID:'$.additionalId',
+        
     }
 }
