@@ -10,9 +10,10 @@ export class AppComponent  {
   
 /**
    * parameters passed by angular Dependency Injection 
-   * @param http 
+   * @param translate  
    */
   constructor(private translate: TranslateService) {
+    //Configure the Language to be English by default
     translate.addLangs(LANGUAGES);
     translate.setDefaultLang(DEFAULT_LANGUAGE);
     translate.use(DEFAULT_LANGUAGE);

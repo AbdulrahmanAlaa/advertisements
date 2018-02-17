@@ -3,7 +3,9 @@ import { CanActivate, CanLoad, CanActivateChild, ActivatedRouteSnapshot, RouterS
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../services/auth.service';
 import { config } from '../utilities/pages-config';
-
+/**
+ * the Auth Guard decorator that help angular DI system to work  
+ */
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
   /**

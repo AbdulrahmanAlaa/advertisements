@@ -20,10 +20,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
 }
 
-// export function configLoaderFactory(config: ConfigLoaderService) {
-//   return () => config.load();
-// }
-
+/**
+ * the App Module decorator that contains needed modules and providers for application to run
+ */
 @NgModule({
   declarations: [
     AppComponent,

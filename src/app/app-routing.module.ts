@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { config } from './shared/utilities/pages-config';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './shared/guards/auth.guard';
-
+/**
+ * holds application routes for lazy loading modules
+ */
 const routes: Routes = [
   {
     path: '',
@@ -25,7 +27,9 @@ const routes: Routes = [
     component: PageNotFoundComponent,
   }
 ];
-
+/**
+ * the App Route decorator that contains needed modules and routs 
+ */
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
