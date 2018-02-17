@@ -1,0 +1,25 @@
+{
+    "common": {
+        "currency": "EUR"
+    },
+    "adv": {
+        "list": {
+            "load-more": "Mehr laden..."
+        },
+        "single": {
+            "rooms": "Zimmer",
+            "rent": "Kaufen"
+        }
+    },
+    "login": {
+        "login-button": "Anmelden",
+        "remember-me": "Erinnere dich an mich",
+        "username": "Benutzername",
+        "password": "Passwort"
+    },
+    "nav-bar": {
+        "home": "Advertisements",
+        "login": "Einloggen",
+        "logout": "Ausloggen"
+    }
+}
