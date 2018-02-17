@@ -1,9 +1,14 @@
-<div class="row mt-4">
+<div class="row mt-4" [@listAnimation]="currentAdvertisements.length">
     <adv-list-item 
-        class="col-md-3"
+        class="col-md-4"
         *ngFor="let advertisement of currentAdvertisements" 
         [advertisement]="advertisement">
     </adv-list-item>
+    <div (click)="loadMoreTen()" *ngIf="currentAdvertisements && currentAdvertisements.length>0" class="load-more card mb-4 box-shadow">
+        <h4 >
+            Load more ...    
+        </h4>
+    </div>
 </div>
 <div *ngIf="!currentAdvertisements" class="loading">
     <span class="picon picon-loading global-spinner"></span>

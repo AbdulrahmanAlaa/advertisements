@@ -1,0 +1,11 @@
+@import "global/functions";
+
+.load-more{
+    width: toRem(350);
+    text-align: center;
+    min-height: toRem(331);
+    cursor: pointer;
+    h4{
+        margin:auto;
+    }
+}

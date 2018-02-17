@@ -1,18 +1,20 @@
 <div *ngIf="advertisement" >
     <div class="card mb-4 box-shadow">
-        <img class="card-img-top"  alt=""
-            style="height: 225px; width: 100%; display: block;" [src]="advertisement.advertisementAssets[0].advertisementThumbnails?.inventory_m?.url"
+        <img  class="card-img-top" 
+            alt=""
+            style="height: 225px; width: 100%; display: block;" 
+            [src]="advertisement?.advertisementAssets[0]?.advertisementThumbnails?.inventory_m?.url || advertisement?.advertisementAssets?.advertisementThumbnails?.inventory_m?.url"
             data-holder-rendered="true">
         <div class="card-body">
-            <p class="card-text">{{advertisement.title}}</p>
+            <p class="card-text">{{advertisement.title | truncate : 30}}</p>
             <div class="d-flex justify-content-between align-items-center">
-                <small> 15,000 $</small>
+                <small> {{advertisement.advertisementPrice.sellPrice | currency: 'EUR' }}</small>
                 <div>
-                    <small class="text-muted">9 mins </small>
+                    <small class="text-muted">{{advertisement?.realestateSummary?.numberOfRooms}} Zimmer</small>
                     <span class="text-muted">
                         |
                     </span>
-                    <small class="text-muted"> 9 mins</small>
+                    <small class="text-muted">{{advertisement?.realestateSummary.space | number:'1.0-2'}} m <sup>2</sup></small>
                 </div>
             </div>
         </div>
