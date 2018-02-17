@@ -21,7 +21,9 @@ stored in `en.json` and `de.json`
 * Lazy loading Modules for faster application development 
 * Enterprise application Structure to work in multible environment like `dev` and `prod`.
 * PollyFills to support animation and old browsers like IE.
-
+* Full jsDocs for all code in the App
+* Custom Fonts/Icons like fontAwesome with McMakler font-family generated
+ 
 # My Choice
 I did chose this approach because the angular framework comes with preconfigured environment and helps to get in up and running projects very fast.Also the fast rendering using the Shadow DOM.
 It Fits big companies as i worked in enterprise apps with both `AngularJS` and `Angular 5`   
