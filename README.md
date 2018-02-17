@@ -23,7 +23,7 @@ stored in `en.json` and `de.json`
 * PollyFills to support animation and old browsers like IE.
 
 # My Choice
-I did chose this approach because the angular framework comes with many preconfigured environment and helps to get in up and running projects very fast.Also the fast rendering using the Shadow DOM.
+I did chose this approach because the angular framework comes with preconfigured environment and helps to get in up and running projects very fast.Also the fast rendering using the Shadow DOM.
 It Fits big companies as i worked in enterprise apps with both `AngularJS` and `Angular 5`   
 
 # Advertisements App
