@@ -56,7 +56,6 @@ export class LoginComponent implements OnDestroy {
 
     //To get the returnUrl from queryString
     this.sub = this.activeRoute.queryParams.subscribe((params:Params) => {
-      console.log(params)
       this.returnUrl = params["returnUrl"] || "";
     });
     //defining the form inputs using Model Driven Forms 

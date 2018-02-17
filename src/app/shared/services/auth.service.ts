@@ -36,7 +36,7 @@ export class AuthService {
  * @return boolean indicated if the user Authenticated or not
  */
   public isAuthenticated(): boolean {
-    return (this.storageService.user || this.storageService.token || this.storageService.getStorage(USER) || this.storageService.getStorage(TOKEN)) ? true : false;
+    return (this.storageService.user || this.storageService.token || this.storageService.getStorage(USER) || this.storageService.getStorage(TOKEN) || this.storageService.getSession(TOKEN)) ? true : false;
   }
 
   /**
@@ -57,18 +57,21 @@ export class AuthService {
    */
   authenticate(username: string, password: string, remember: boolean): Observable<any> {
     //Sending Username and  Password To The Server
-    const tokens =  this.http.post(API_URLS.Login, { username, password })
+    const tokens = this.http.post(API_URLS.Login, { username, password })
     //Get user Data info from server
-    const userInfo =  this.userService.getUserInfo();
-    return  forkJoin([tokens,userInfo]).map((results:any)=>{
+    const userInfo = this.userService.getUserInfo();
+    return forkJoin([tokens, userInfo]).map((results: any) => {
       this.storageService.status.isLoggedIn = true;
       this.storageService.user = results[1] as User;
-      this.storageService.token = JsonQuery.value( results[0] , JSON_PATHS.LOGIN.TOKEN) || null;
+      this.storageService.token = JsonQuery.value(results[0], JSON_PATHS.LOGIN.TOKEN) || null;
+      //Keeps the user logged in after closing the tabs
+      this.storageService.setSession(TOKEN, this.storageService.token);
+      this.storageService.setSession(USER, this.storageService.user);
       if (remember) {
         this.storageService.setStorage(TOKEN, this.storageService.token);
         this.storageService.setStorage(USER, this.storageService.user);
       }
-     });
+    });
   }
 
 

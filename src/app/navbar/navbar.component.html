@@ -10,11 +10,11 @@
                 </a>
             </li>
         </ul>
-        <a id="btn-custom" [routerLink]="['/login']" class="btn">
+        <a *ngIf="!status.isLoggedIn" id="btn-custom" [routerLink]="['/login']" class="btn">
             <i class="picon picon-enter align-middle" aria-hidden="true"></i>
             <span >Login</span>
         </a>
-        <a id="btn-custom" (click)="logout()" class="btn">
+        <a  *ngIf="status.isLoggedIn" id="btn-custom" (click)="logout()" class="btn">
             <i class="picon picon-exit align-middle" aria-hidden="true"></i>
             <span >Logout</span>
         </a>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LOCAL_STORAGE_PREFIX,USER } from '../utilities/defines';
+import { LOCAL_STORAGE_PREFIX, USER } from '../utilities/defines';
 import { User } from '../interfaces/user';
 /**
  * the Storage Service decorator that help angular DI system to work  
@@ -30,7 +30,7 @@ export class StorageService {
        * @param value the value of localstorage item
       */
     public setStorage(key: string, value: any) {
-        let newKey = LOCAL_STORAGE_PREFIX + "." + key;
+        const newKey = `${LOCAL_STORAGE_PREFIX}.${key}`;
         //Add to localstorage 
         if (typeof value === 'object') {
             localStorage.setItem(newKey, JSON.stringify(value));
@@ -41,12 +41,44 @@ export class StorageService {
     }
 
     /**
-         * read certain item from the session storage or from the cachedSession and 
-         * parse the item to json if the item is a stringified object.
-          * @param  {key} The key of the property to be detected
-          * @returns {Object} the returned object holds the value for the detected property
-         */
+      * add/set item to browser sessionStorage 
+      * @param key the identifier for the sessionStorage item
+       * @param value the value of sessionStorage item
+      */
+    public setSession(key: string, value: any) {
+
+        const newKey = `${LOCAL_STORAGE_PREFIX}.${key}`;
+        //Add to sessionStorage 
+        if (typeof value === 'object') {
+            sessionStorage.setItem(newKey, JSON.stringify(value));
+        } else {
+            sessionStorage.setItem(newKey, String(value));
+        }
+
+    }
+
+    /**
+     * read certain item from the sessionStorage  and 
+     * parse the item to json if the item is a stringified object.
+         * @param  {key} The key of the property to be detected
+         * @returns {Object} the returned object holds the value for the detected property
+     */
+    public getSession(key: string) {
+        try {
+            return JSON.parse(sessionStorage.getItem(LOCAL_STORAGE_PREFIX + "." + key));
+        } catch (error) {
+            return sessionStorage.getItem(LOCAL_STORAGE_PREFIX + "." + key);
+        }
+    }
+
+    /**
+     * read certain item from the localStorage and 
+     * parse the item to json if the item is a stringified object.
+         * @param  {key} The key of the property to be detected
+         * @returns {Object} the returned object holds the value for the detected property
+     */
     public getStorage(key: string) {
+        sessionStorage
         try {
             return JSON.parse(localStorage.getItem(LOCAL_STORAGE_PREFIX + "." + key));
         } catch (error) {
