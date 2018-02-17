@@ -12,7 +12,7 @@ export class AdsListComponent implements OnInit {
 
   ngOnInit() {
   this.advService.getAll().subscribe((results)=>{
-    console.log(results);
+    console.log('results:',results);
   });
   }
 

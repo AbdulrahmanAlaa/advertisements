@@ -1,11 +1,12 @@
 export interface Advertisement {
+    advertisementAssets:Array<any>;
     additionalId: number;
     advertisementPrice: Price;
     hasFurniture: boolean;
     purpose: number;
     realestateSummary: RealState;
     title: string;
-    userWishes: { visibleAddress: boolean };
+    userWishes:  boolean ;
     _id: { $id: string }
 }
 
