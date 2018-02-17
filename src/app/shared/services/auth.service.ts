@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from "@angular/router";
 import 'rxjs/add/operator/map';
+import { forkJoin } from "rxjs/observable/forkJoin";
 
 import { StorageService } from './storage.service';
 
@@ -35,7 +36,7 @@ export class AuthService {
  * @return boolean indicated if the user Authenticated or not
  */
   public isAuthenticated(): boolean {
-    return (this.storageService.user || this.storageService.getStorage(TOKEN)) ? true : false;
+    return (this.storageService.user || this.storageService.token || this.storageService.getStorage(USER) || this.storageService.getStorage(TOKEN)) ? true : false;
   }
 
   /**
@@ -56,19 +57,18 @@ export class AuthService {
    */
   authenticate(username: string, password: string, remember: boolean): Observable<any> {
     //Sending Username and  Password To The Server
-    return this.http.post(API_URLS.Login, { username, password }).map((token) => {
-      //Get user Data info from server
-    return this.userService.getUserInfo().map((user) => {
-        this.storageService.status.isLoggedIn = true;
-        this.storageService.user = user;
-        this.storageService.token = JsonQuery.value(token, JSON_PATHS.LOGIN.TOKEN) || null;
-        if (remember) {
-          this.storageService.setStorage(TOKEN, this.storageService.token);
-          this.storageService.setStorage(USER, this.storageService.user);
-        }
-      });
-     
-    });
+    const tokens =  this.http.post(API_URLS.Login, { username, password })
+    //Get user Data info from server
+    const userInfo =  this.userService.getUserInfo();
+    return  forkJoin([tokens,userInfo]).map((results:any)=>{
+      this.storageService.status.isLoggedIn = true;
+      this.storageService.user = results[1] as User;
+      this.storageService.token = JsonQuery.value( results[0] , JSON_PATHS.LOGIN.TOKEN) || null;
+      if (remember) {
+        this.storageService.setStorage(TOKEN, this.storageService.token);
+        this.storageService.setStorage(USER, this.storageService.user);
+      }
+     });
   }
 
 

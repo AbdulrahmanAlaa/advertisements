@@ -3,7 +3,7 @@ import { Component,  trigger, state, style, transition, animate, OnDestroy } fro
 import * as JsonQuery from 'jsonpath/jsonpath';
 import { Subscription } from 'rxjs/Subscription';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { config } from '../../shared/utilities/pages-config';
 
@@ -55,7 +55,8 @@ export class LoginComponent implements OnDestroy {
     }, 400);
 
     //To get the returnUrl from queryString
-    this.sub = this.activeRoute.params.subscribe(params => {
+    this.sub = this.activeRoute.queryParams.subscribe((params:Params) => {
+      console.log(params)
       this.returnUrl = params["returnUrl"] || "";
     });
     //defining the form inputs using Model Driven Forms 

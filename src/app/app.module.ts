@@ -14,6 +14,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, 'assets/i18n/', '.json');
@@ -47,7 +48,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
