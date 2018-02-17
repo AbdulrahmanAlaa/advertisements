@@ -32,6 +32,7 @@ export class NavbarComponent {
      * get the user status from storage service to show login Or logout in nav bar
      */
     this.status = this.storageService.status;
+  
    }
   logout() {
     this.authService.logout();

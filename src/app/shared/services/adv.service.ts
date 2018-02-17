@@ -1,7 +1,7 @@
-import { Observable } from 'rxjs/Observable';
-import { Address, RealState } from './../interfaces/advertisement';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
 import { API_URLS } from '../utilities/service-config';
 import { Advertisement } from '../interfaces/advertisement';
 import * as JsonQuery from 'jsonpath/jsonpath';
@@ -36,17 +36,17 @@ export class AdvService {
         adv.userWishes = JsonQuery.value(advertisement, JSON_PATHS.ADS.USER_WISHES);
         adv.realestateSummary = JsonQuery.value(advertisement, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.ROOT) ;
         adv.advertisementPrice = JsonQuery.value(advertisement, JSON_PATHS.ADS.ADV_PRICE.ROOT) ;
-        adv.advertisementAssets = JsonQuery.query(advertisement, JSON_PATHS.ADS.ADV_PRICE.ROOT) ;
+        adv.advertisementAssets = JsonQuery.value(advertisement, JSON_PATHS.ADS.ASSETS.ROOT) ;
 
         //Map complex objects as properties 
         if(adv.realestateSummary){//Defensive programming to prevent null.prop error 
-          adv.realestateSummary.address = JsonQuery.query(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.ADDRESS);
-          adv.realestateSummary.numberOfRooms = JsonQuery.query(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.NO_OF_ROOMS);
-          adv.realestateSummary.space = JsonQuery.query(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.SPACE);
+          adv.realestateSummary.address = JsonQuery.value(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.ADDRESS);
+          adv.realestateSummary.numberOfRooms = JsonQuery.value(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.NO_OF_ROOMS);
+          adv.realestateSummary.space = JsonQuery.value(adv.realestateSummary, JSON_PATHS.ADS.REAL_ESTATE_SUMMARY.SPACE);
         }
         if (adv.advertisementPrice) {//Defensive programming to prevent null.prop error
-          adv.advertisementPrice.baseRent = JsonQuery.query(adv.advertisementPrice, JSON_PATHS.ADS.ADV_PRICE.BASE_RENT);
-          adv.advertisementPrice.sellPrice = JsonQuery.query(adv.advertisementPrice, JSON_PATHS.ADS.ADV_PRICE.SELL_PRICE);
+          adv.advertisementPrice.baseRent = JsonQuery.value(adv.advertisementPrice, JSON_PATHS.ADS.ADV_PRICE.BASE_RENT);
+          adv.advertisementPrice.sellPrice = JsonQuery.value(adv.advertisementPrice, JSON_PATHS.ADS.ADV_PRICE.SELL_PRICE);
         }
         return adv;
       });

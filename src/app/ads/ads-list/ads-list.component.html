@@ -1,3 +1,10 @@
-<p>
-  ads-list works!
-</p>
+<div class="row mt-4">
+    <adv-list-item 
+        class="col-md-3"
+        *ngFor="let advertisement of currentAdvertisements" 
+        [advertisement]="advertisement">
+    </adv-list-item>
+</div>
+<div *ngIf="!currentAdvertisements" class="loading">
+    <span class="picon picon-loading global-spinner"></span>
+</div>
