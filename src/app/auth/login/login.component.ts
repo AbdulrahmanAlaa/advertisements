@@ -6,7 +6,9 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
 import { config } from '../../shared/utilities/pages-config';
-
+/**
+ * the login component decorator that contains animations info and html and css places 
+ */
 @Component({
   selector: 'adv-login',
   templateUrl: './login.component.html',

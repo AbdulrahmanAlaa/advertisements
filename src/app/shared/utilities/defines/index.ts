@@ -12,7 +12,7 @@ export { JSON_PATHS } from './json-path';
 export const LOCAL_STORAGE_PREFIX = 'mcmakler-LocalStore.key';
 
 /**
- * contains the user info when dealing with storage 
+ * contains the user and token info when dealing with storage 
  */
 export const TOKEN =  "TOKEN"
 export const USER =  "user"

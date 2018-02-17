@@ -7,10 +7,13 @@ import { JSON_PATHS } from '../utilities/defines';
 
 @Injectable()
 export class UserService {
-
+/**
+   * parameters passed by angular Dependency Injection 
+   * @param http 
+   */
   constructor(private http: HttpClient) { }
   /** 
-   * 
+   * Get user information while logging in from api
   */
   getUserInfo() {
     return this.http.get(API_URLS.GET_User_DATA).map((response)=>{

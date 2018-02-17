@@ -1,3 +1,6 @@
+/**
+ * advertisement interface that contains the needed info to be displayed in components
+ */
 export interface Advertisement {
     advertisementAssets:Array<any>;
     additionalId: number;

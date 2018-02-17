@@ -2,7 +2,9 @@ import { Advertisement } from './../../shared/interfaces/advertisement';
 import { Component, OnInit } from '@angular/core';
 import { AdvService } from '../../shared/services/adv.service';
 import { trigger, style, transition, keyframes, animate, query, stagger } from '@angular/animations';
-
+/**
+ * the Advertisement list  component decorator that contains animations info and html and scss files 
+ */
 @Component({
   selector: 'adv-ads-list',
   templateUrl: './ads-list.component.html',
@@ -25,7 +27,6 @@ import { trigger, style, transition, keyframes, animate, query, stagger } from '
 })
 export class AdsListComponent implements OnInit {
 
-  constructor(private advService: AdvService) { }
   /** holds the current page NO */
   pageCurrent: number = 1;
 
@@ -35,6 +36,12 @@ export class AdsListComponent implements OnInit {
   /** holds all the advertisement returned from the service  */
   advertisements: Array<Advertisement>;
 
+  /**  receives instances of providers from angular DI (dependency Injection) container */
+  constructor(private advService: AdvService) { }
+
+  /**
+   * initial advertisements loaded from server
+   */
   ngOnInit() {
     this.advService.getAll().subscribe((advertisements) => {
       this.advertisements = advertisements;
@@ -42,13 +49,10 @@ export class AdsListComponent implements OnInit {
       console.log(this.currentAdvertisements);
     });
   }
+
   /** loads more 10 items */
   loadMoreTen() {
-    this.currentAdvertisements =this.advertisements.slice((0) , ++this.pageCurrent * 10) 
-    // const temp = this.advertisements.slice((this.pageCurrent * 10) , ++this.pageCurrent * 10)
-    // setTimeout(()=>{
-    //   this.currentAdvertisements.push(...temp);
-    // },1000)
+    this.currentAdvertisements = this.advertisements.slice((0), ++this.pageCurrent * 10);
   }
 
 }

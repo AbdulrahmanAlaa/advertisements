@@ -14,4 +14,7 @@ import { AdsListItemComponent } from './ads-list-item/ads-list-item.component';
   ],
   declarations: [AdsListComponent, AdsListItemComponent]
 })
+/**
+ * the Video Module decorator that contains needed modules and providers for Video Module to run
+ */
 export class AdsModule { }

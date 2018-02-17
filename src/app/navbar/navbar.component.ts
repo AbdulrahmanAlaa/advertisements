@@ -16,7 +16,7 @@ export class NavbarComponent {
     * holds the user login status object to point for same object in Storage Service
     */
   status: { isLoggedIn: boolean };
-  
+
   /**
    * using angular DI system to inject needed services in single tone 
    * @param storageService 
@@ -32,8 +32,12 @@ export class NavbarComponent {
      * get the user status from storage service to show login Or logout in nav bar
      */
     this.status = this.storageService.status;
-  
-   }
+
+  }
+
+  /**
+    * clear all the info about the user and redirect him to login page
+    */
   logout() {
     this.authService.logout();
     this.storageService.status.isLoggedIn = false;

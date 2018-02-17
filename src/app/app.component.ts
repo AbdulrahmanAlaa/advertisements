@@ -4,13 +4,14 @@ import { LANGUAGES, DEFAULT_LANGUAGE } from '../app/shared/utilities/defines';
 
 @Component({
   selector: 'adv-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent  {
   
-  public title:string;
-
+/**
+   * parameters passed by angular Dependency Injection 
+   * @param http 
+   */
   constructor(private translate: TranslateService) {
     translate.addLangs(LANGUAGES);
     translate.setDefaultLang(DEFAULT_LANGUAGE);
