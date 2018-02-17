@@ -1,7 +1,14 @@
 {
+    "common":{
+        "currency":"USD"
+    },  
     "adv":{
-        "list-item":{
-            
+        "list":{
+            "load-more":"Load more..."
+        },
+        "single":{
+            "rooms":"rooms",
+            "rent":"Rent"
         }
     }
 }

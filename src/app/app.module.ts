@@ -1,7 +1,7 @@
 import { SharedModule } from './shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -48,7 +48,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     AuthService,
     UserService,
-    AuthGuard
+    AuthGuard,
+    TranslateService
   ],
   bootstrap: [AppComponent]
 })

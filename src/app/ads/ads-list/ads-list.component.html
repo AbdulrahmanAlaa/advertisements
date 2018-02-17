@@ -1,4 +1,4 @@
-<div class="row mt-4" [@listAnimation]="currentAdvertisements.length">
+<div class="row mt-4" [@listAnimation]="currentAdvertisements && currentAdvertisements.length || 0">
     <adv-list-item 
         class="col-md-4"
         *ngFor="let advertisement of currentAdvertisements" 
@@ -6,7 +6,7 @@
     </adv-list-item>
     <div (click)="loadMoreTen()" *ngIf="currentAdvertisements && currentAdvertisements.length>0" class="load-more card mb-4 box-shadow">
         <h4 >
-            Load more ...    
+            {{ "adv.list.load-more" |  translate}}    
         </h4>
     </div>
 </div>

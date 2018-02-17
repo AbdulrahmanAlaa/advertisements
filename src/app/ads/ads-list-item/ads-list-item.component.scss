@@ -1,0 +1,25 @@
+.address {
+    color: #aaa;
+}
+
+figure {
+    position: relative;
+    figcaption {
+        position: absolute;
+        top:0px;
+    }
+}
+
+.property {
+    &-card__label {
+        background-color: #fff;
+        border: solid 1px #dadada;
+        border-radius: 2px;
+        color: #aaa;
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 3px 8px;
+        margin: 20px;
+    }
+}

@@ -1,16 +1,36 @@
 <div *ngIf="advertisement" >
     <div class="card mb-4 box-shadow">
-        <img  class="card-img-top" 
-            alt=""
-            style="height: 225px; width: 100%; display: block;" 
-            [src]="advertisement?.advertisementAssets[0]?.advertisementThumbnails?.inventory_m?.url || advertisement?.advertisementAssets?.advertisementThumbnails?.inventory_m?.url"
-            data-holder-rendered="true">
+        <figure>
+            <img  
+                class="card-img-top" 
+                alt=""
+                style="height: 225px; width: 100%; display: block;" 
+                [src]="advertisement?.advertisementAssets[0]?.advertisementThumbnails?.inventory_m?.url || advertisement?.advertisementAssets?.advertisementThumbnails?.inventory_m?.url"
+                data-holder-rendered="true"
+                />
+            <figcaption>
+                <span class="property-card__label">{{"adv.single.rent"|translate}}</span>
+            </figcaption>
+        </figure>
         <div class="card-body">
             <p class="card-text">{{advertisement.title | truncate : 30}}</p>
+            <div class="address d-flex justify-content-between align-items-start mb-4">
+                <small > 
+                    <span >{{advertisement?.realestateSummary?.address?.postalCode}}</span>
+                     / 
+                    <span >{{advertisement?.realestateSummary?.address?.city}}</span>
+                </small>
+            </div>
             <div class="d-flex justify-content-between align-items-center">
-                <small> {{advertisement.advertisementPrice.sellPrice | currency: 'EUR' }}</small>
+                <small>
+                    <strong>
+                            {{advertisement.advertisementPrice.sellPrice | currency: ('common.currency' | translate) }}
+                    </strong>
+                </small>
                 <div>
-                    <small class="text-muted">{{advertisement?.realestateSummary?.numberOfRooms}} Zimmer</small>
+                    <small  class="text-muted" >
+                    {{advertisement?.realestateSummary?.numberOfRooms}} {{'adv.single.rooms'|translate}}
+                    </small>
                     <span class="text-muted">
                         |
                     </span>
