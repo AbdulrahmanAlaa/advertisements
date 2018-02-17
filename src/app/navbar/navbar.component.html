@@ -5,18 +5,18 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Advertisements
+                <a class="nav-link" href="#">{{"nav-bar.home"|translate}}
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
         </ul>
         <a *ngIf="!status.isLoggedIn" id="btn-custom" [routerLink]="['/login']" class="btn">
             <i class="picon picon-enter align-middle" aria-hidden="true"></i>
-            <span >Login</span>
+            <span >{{"nav-bar.login"|translate}}</span>
         </a>
         <a  *ngIf="status.isLoggedIn" id="btn-custom" (click)="logout()" class="btn">
             <i class="picon picon-exit align-middle" aria-hidden="true"></i>
-            <span >Logout</span>
+            <span >{{"nav-bar.logout"|translate}}</span>
         </a>
     </div>
 </nav>

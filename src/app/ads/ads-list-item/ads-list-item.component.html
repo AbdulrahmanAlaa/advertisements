@@ -1,12 +1,10 @@
-<div *ngIf="advertisement" >
+<div *ngIf="advertisement" class="ads-list">
     <div class="card mb-4 box-shadow">
         <figure>
             <img  
                 class="card-img-top" 
-                alt=""
-                style="height: 225px; width: 100%; display: block;" 
+                alt="" 
                 [src]="advertisement?.advertisementAssets[0]?.advertisementThumbnails?.inventory_m?.url || advertisement?.advertisementAssets?.advertisementThumbnails?.inventory_m?.url"
-                data-holder-rendered="true"
                 />
             <figcaption>
                 <span class="property-card__label">{{"adv.single.rent"|translate}}</span>

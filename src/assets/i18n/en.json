@@ -1,14 +1,25 @@
 {
-    "common":{
-        "currency":"USD"
-    },  
-    "adv":{
-        "list":{
-            "load-more":"Load more..."
+    "common": {
+        "currency": "USD"
+    },
+    "adv": {
+        "list": {
+            "load-more": "Load more..."
         },
-        "single":{
-            "rooms":"rooms",
-            "rent":"Rent"
+        "single": {
+            "rooms": "rooms",
+            "rent": "Rent"
         }
+    },
+    "login": {
+        "login-button": "Sign in",
+        "remember-me": "Remember me",
+        "username": "Username",
+        "password": "Password"
+    },
+    "nav-bar": {
+        "home": "Advertisements",
+        "login": "Login",
+        "logout": "Logout"
     }
 }

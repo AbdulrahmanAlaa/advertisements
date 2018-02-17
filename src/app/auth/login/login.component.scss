@@ -4,20 +4,23 @@
 /*
  * General styles
  */
- body, html {
+@import "global/functions";
+ 
+
+body, html {
     height: 100%;
     background-repeat: no-repeat;
     background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 
 .card-container.card {
-    max-width: 350px;
-    padding: 40px 40px;
+    max-width: toRem(350);
+    padding: toRem(40) toRem(40);
 }
 
 .btn {
     font-weight: 700;
-    height: 36px;
+    height: toRem(36);
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
@@ -56,7 +59,7 @@
  * Form styles
  */
 .profile-name-card {
-    font-size: 16px;
+    font-size: toRem(16);
     font-weight: bold;
     text-align: center;
     margin: 10px 0 0;
@@ -67,8 +70,8 @@
     display: block;
     color: #404040;
     line-height: 2;
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: toRem(10);
+    font-size: toRem(14);
     text-align: center;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -81,7 +84,7 @@
 .form-signin #inputUsername,
 .form-signin #inputPassword {
     direction: ltr;
-    height: 44px;
+    height: toRem(44);
     font-size: 16px;
 }
 
@@ -112,7 +115,7 @@
     /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
     padding: 0px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: toRem(14);
     height: 36px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;

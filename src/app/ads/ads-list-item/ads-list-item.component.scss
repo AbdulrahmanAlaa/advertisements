@@ -1,25 +1,33 @@
-.address {
-    color: #aaa;
-}
+@import "global/functions";
 
-figure {
-    position: relative;
-    figcaption {
-        position: absolute;
-        top:0px;
-    }
-}
-
-.property {
-    &-card__label {
-        background-color: #fff;
-        border: solid 1px #dadada;
-        border-radius: 2px;
+.ads-list {
+    .address {
         color: #aaa;
-        display: inline-block;
-        font-size: 13px;
-        font-weight: 500;
-        padding: 3px 8px;
-        margin: 20px;
+    }
+    figure {
+        position: relative;
+        img {
+            height: toRem(225);
+            width: 100%;
+            display: block;
+        }
+        figcaption {
+            position: absolute;
+            top: 0px;
+        }
+    }
+    .property {
+        &-card__label {
+            cursor: pointer;
+            background-color: #fff;
+            border: solid toRem(1) #dadada;
+            border-radius: toRem(2);
+            color: #aaa;
+            display: inline-block;
+            font-size: toRem(13);
+            font-weight: 500;
+            padding: toRem(3) toRem(8);
+            margin: toRem(20);
+        }
     }
 }
