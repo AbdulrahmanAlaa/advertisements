@@ -16,6 +16,7 @@ export class UserService {
    * Get user information while logging in from api
   */
   getUserInfo() {
+    console.log('API_URLS.GET_User_DATA',API_URLS.GET_User_DATA)
     return this.http.get(API_URLS.GET_User_DATA).map((response)=>{
       const user :User = new Object() as User;
       user.id =  JsonQuery.value(response, JSON_PATHS.USER.ID) || 0;

@@ -99,6 +99,7 @@ export class StorageService {
          */
     public empty() {
         localStorage.clear();
+        sessionStorage.clear();
     }
 
     /**

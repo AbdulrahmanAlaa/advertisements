@@ -37,6 +37,7 @@ export class AuthService {
  * @return boolean indicated if the user Authenticated or not
  */
   public isAuthenticated(): boolean {
+    debugger;
     return (this.storageService.user || this.storageService.token || this.storageService.getStorage(USER) || this.storageService.getStorage(TOKEN) || this.storageService.getSession(TOKEN)) ? true : false;
   }
 
@@ -47,7 +48,8 @@ export class AuthService {
     //clear the localStorage and global objects in the service
     this.storageService.empty();
     this.storageService.user = null;
-    this.storageService.setStorage(TOKEN, null)
+    this.storageService.token = null;
+    this.storageService.setStorage(TOKEN, null);
   }
 
   /**
