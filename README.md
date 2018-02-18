@@ -9,6 +9,11 @@ the application will run on the following url `localhost:4200`
 to run the Unit test with coverage using the following command
 ```ng test --code-coverage```
 The coverage report can be found in `coverage\index.html`
+# Navigate to Login 
+Use Any User Name And Password to login 
+After the login the Adv will not be Displayed be cause of the `'Access-Control-Allow-Origin'` Error 
+to fix this error allow the cross origin via cors package on the server side or simply open the Chrome using the following Command
+`chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security`
 
 # Implementation Details
 * Framework Angular 5 With TypeScript
