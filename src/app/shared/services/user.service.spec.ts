@@ -4,7 +4,7 @@ import { TestBed, inject, async } from '@angular/core/testing';
 import { UserService } from './user.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { fakeBackendProvider } from '../mocks/http-interceptor';
+// import { fakeBackendProvider } from '../mocks/http-interceptor';
 import { API_URLS } from '../utilities/service-config';
 
 
